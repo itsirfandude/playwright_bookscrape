@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-//import fs from "fs";
 interface Book {
   title: string | null;
   price: string | null;
@@ -46,6 +45,11 @@ test('BookScrape', async ({ page }) => {
       availability: availability?.trim()
     });
   }
+
+  await page.getByText('Home').click();
+
+  
+  
   console.log(totalcount);
   console.log(`Items in stock: ${inStockCount}`);
 
@@ -55,6 +59,6 @@ test('BookScrape', async ({ page }) => {
   console.log(bookDetails);
   console.table(bookDetails);
 
-  //fs.writeFileSync("books.json", JSON.stringify(bookDetails, null, 2));
+  
 
 });
